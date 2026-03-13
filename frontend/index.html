@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Suspicious Conversation Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🛡️</span>
+          <span class="logo-text">SafeChat AI</span>
+        </div>
+        <p class="tagline">AI-Powered Suspicious Conversation Analyzer</p>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="intro-section">
+        <h1 class="intro-title">Stay Safe Online</h1>
+        <p class="intro-description">
+          Paste any suspicious conversation below to detect scams, grooming,
+          manipulation, and harassment using advanced AI analysis.
+        </p>
+        <div class="detection-badges">
+          <span class="badge badge-scam">🚨 Scam Detection</span>
+          <span class="badge badge-grooming">⚠️ Grooming Detection</span>
+          <span class="badge badge-manipulation">🔍 Manipulation Detection</span>
+          <span class="badge badge-harassment">🛑 Harassment Detection</span>
+        </div>
+      </section>
+
+      <section class="analyzer-section">
+        <div class="input-card">
+          <label class="input-label" for="conversationInput">
+            Paste Conversation Text
+          </label>
+          <textarea
+            id="conversationInput"
+            class="conversation-input"
+            placeholder="Paste the conversation you want to analyze here...
+
+Example:
+Person A: Hey, I can double your money in 24 hours! Just send me $500 in gift cards.
+Person B: Really? How does that work?
+Person A: It's a secret investment opportunity. Don't tell anyone and act fast!"
+            maxlength="20000"
+            spellcheck="false"
+          ></textarea>
+          <div class="input-footer">
+            <span class="char-count">
+              <span id="charCount">0</span> / 20,000 characters
+            </span>
+            <div class="input-actions">
+              <button
+                class="btn btn-secondary"
+                id="clearBtn"
+                type="button"
+                title="Clear text"
+              >
+                🗑️ Clear
+              </button>
+              <button
+                class="btn btn-primary"
+                id="analyzeBtn"
+                type="button"
+              >
+                <span class="btn-icon">🔍</span>
+                <span class="btn-text">Analyze Conversation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-card" id="loadingCard" hidden>
+          <div class="loading-spinner"></div>
+          <p class="loading-text">Analyzing conversation with AI...</p>
+          <p class="loading-subtext">This may take a few seconds</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-card" id="errorCard" hidden>
+          <div class="error-icon">❌</div>
+          <h3 class="error-title">Analysis Failed</h3>
+          <p class="error-message" id="errorMessage"></p>
+          <button class="btn btn-secondary" id="retryBtn" type="button">
+            Try Again
+          </button>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-card" id="resultsCard" hidden>
+          <!-- Risk Level Banner -->
+          <div class="risk-banner" id="riskBanner">
+            <div class="risk-icon" id="riskIcon"></div>
+            <div class="risk-info">
+              <span class="risk-label">Risk Level</span>
+              <span class="risk-level" id="riskLevel"></span>
+            </div>
+          </div>
+
+          <!-- Explanation -->
+          <div class="result-section">
+            <h3 class="result-section-title">
+              <span class="section-icon">📋</span> Analysis Summary
+            </h3>
+            <p class="explanation-text" id="explanationText"></p>
+          </div>
+
+          <!-- Suspicious Phrases -->
+          <div class="result-section" id="phrasesSection">
+            <h3 class="result-section-title">
+              <span class="section-icon">🚩</span> Suspicious Phrases Detected
+            </h3>
+            <ul class="phrases-list" id="phrasesList"></ul>
+          </div>
+
+          <!-- Safety Advice -->
+          <div class="result-section">
+            <h3 class="result-section-title">
+              <span class="section-icon">💡</span> Safety Advice
+            </h3>
+            <ul class="advice-list" id="adviceList"></ul>
+          </div>
+
+          <div class="results-footer">
+            <p class="disclaimer">
+              ⚠️ This analysis is AI-generated and should not replace professional
+              judgement. If you are in danger, contact local authorities immediately.
+            </p>
+            <button class="btn btn-secondary" id="analyzeAnotherBtn" type="button">
+              Analyze Another Conversation
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Built with ❤️ for online safety &bull;
+        <strong>SafeChat AI</strong> &bull; Powered by Google Gemini
+      </p>
+      <p class="footer-note">
+        Your conversations are never stored. Analysis is performed in real time.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
