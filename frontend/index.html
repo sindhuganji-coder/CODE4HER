@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Suspicious Conversation Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-icon">🔍</div>
+      <h1 class="header-title">AI Suspicious Conversation Analyzer</h1>
+      <p class="header-subtitle">
+        Paste any conversation below to detect scams, grooming, manipulation, or harassment.
+      </p>
+    </header>
+
+    <!-- Input Section -->
+    <section class="card input-card">
+      <label for="conversationInput" class="label">Conversation Text</label>
+      <textarea
+        id="conversationInput"
+        class="textarea"
+        rows="10"
+        placeholder="Paste the conversation here...&#10;&#10;Example:&#10;Stranger: Hey, you've won a $1,000 gift card! Click this link to claim your prize immediately..."
+      ></textarea>
+      <div class="input-footer">
+        <span id="charCount" class="char-count">0 / 20,000 characters</span>
+        <button id="analyzeBtn" class="btn btn-primary" onclick="analyzeConversation()">
+          <span class="btn-icon">🧠</span> Analyze Conversation
+        </button>
+      </div>
+    </section>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analyzing conversation with AI…</p>
+    </div>
+
+    <!-- Error Banner -->
+    <div id="errorBanner" class="error-banner hidden">
+      <span class="error-icon">⚠️</span>
+      <span id="errorMessage"></span>
+    </div>
+
+    <!-- Results Section -->
+    <section id="results" class="results hidden">
+
+      <!-- Risk Level Card -->
+      <div class="card risk-card" id="riskCard">
+        <div class="risk-header">
+          <span class="risk-icon" id="riskIcon"></span>
+          <div>
+            <p class="risk-label">Risk Level</p>
+            <p class="risk-value" id="riskValue"></p>
+          </div>
+        </div>
+        <p class="risk-description" id="riskDescription"></p>
+      </div>
+
+      <!-- Explanation Card -->
+      <div class="card">
+        <h2 class="section-title">📋 Analysis Summary</h2>
+        <p id="explanation" class="explanation-text"></p>
+      </div>
+
+      <!-- Suspicious Phrases Card -->
+      <div class="card" id="phrasesCard">
+        <h2 class="section-title">🚩 Suspicious Phrases Detected</h2>
+        <ul id="suspiciousPhrases" class="phrases-list"></ul>
+        <p id="noPhrases" class="no-items hidden">No suspicious phrases detected.</p>
+      </div>
+
+      <!-- Safety Advice Card -->
+      <div class="card">
+        <h2 class="section-title">🛡️ Safety Advice</h2>
+        <ul id="safetyAdvice" class="advice-list"></ul>
+      </div>
+
+      <!-- Analyze Again -->
+      <div class="reset-row">
+        <button class="btn btn-secondary" onclick="resetForm()">
+          ↩ Analyze Another Conversation
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>Powered by Google Gemini AI &bull; For educational and safety purposes only.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
